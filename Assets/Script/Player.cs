@@ -31,6 +31,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // transform‚ğæ“¾
+        Transform myTransform = this.transform;
+
+        if(Input.GetKey(KeyCode.Space))
+        {
+            // “ü‚ê‘Ö‚¦ƒ[ƒv
+            myTransform.position = new Vector3(-6.0f,-1.0f,0.0f);
+        }
     }
 }
