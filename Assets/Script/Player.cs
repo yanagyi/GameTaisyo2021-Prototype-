@@ -4,17 +4,32 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //リジッドボディ変数
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        //リジッドボディ取得
         rb = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
+        //移動キー設定
         float horizontalKey = Input.GetAxis("Horizontal");
+
+        //重力反転
+        if (Input.GetKey(KeyCode.E))
+        {
+            Physics2D.gravity = new Vector2(0, 10.0f);
+        }
+
+        //重力を元に戻す
+        if (Input.GetKey(KeyCode.R))
+        {
+            Physics2D.gravity = new Vector2(0, -9.81f);
+        }
 
         //右移動
         if (horizontalKey > 0)
@@ -39,5 +54,7 @@ public class Player : MonoBehaviour
             // 入れ替えワープ
             myTransform.position = new Vector3(-6.0f,-1.0f,0.0f);
         }
+
+
     }
 }
